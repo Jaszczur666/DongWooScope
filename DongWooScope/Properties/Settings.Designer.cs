@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DongWooSharp.Properties {
+namespace DongWooScope.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

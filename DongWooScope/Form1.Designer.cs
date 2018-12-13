@@ -1,4 +1,4 @@
-﻿namespace DongWooSharp
+﻿namespace DongWooScope
 {
     partial class Form1
     {
@@ -47,6 +47,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.mono2ComboBox = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -94,6 +95,7 @@
             this.tbStart.Name = "tbStart";
             this.tbStart.Size = new System.Drawing.Size(100, 20);
             this.tbStart.TabIndex = 1;
+            this.tbStart.Text = "590";
             // 
             // tbStep
             // 
@@ -101,6 +103,7 @@
             this.tbStep.Name = "tbStep";
             this.tbStep.Size = new System.Drawing.Size(100, 20);
             this.tbStep.TabIndex = 2;
+            this.tbStep.Text = "1";
             // 
             // tbEnd
             // 
@@ -108,6 +111,7 @@
             this.tbEnd.Name = "tbEnd";
             this.tbEnd.Size = new System.Drawing.Size(100, 20);
             this.tbEnd.TabIndex = 3;
+            this.tbEnd.Text = "625";
             // 
             // timer1
             // 
@@ -193,11 +197,22 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Mono dlugi";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 356);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 43;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1068, 529);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.mono2ComboBox);
             this.Controls.Add(this.label5);
@@ -226,10 +241,14 @@
         #endregion
 
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private Monochromator krotki;
-        private Monochromator dlugi;
-        private ADC przetwornik;
-        private int krok;        
+        private ELoop petla;
+        //private Monochromator krotki;
+        //private Monochromator dlugi;
+        //private ADC przetwornik;
+        //private Tektro.Scope Oscyloskop;
+        private int krok;      
+        
+        //petla. += new System.EventHandler(this.button1_Click);
         private System.Windows.Forms.Button Startbutt;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox tbStart;
@@ -245,6 +264,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox mono2ComboBox;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button1;
     }
 }
 
