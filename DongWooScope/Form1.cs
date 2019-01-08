@@ -12,6 +12,7 @@ namespace DongWooScope
 
     public partial class Form1 : Form
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public Form1()
         {
             InitializeComponent();
@@ -61,8 +62,10 @@ namespace DongWooScope
             petla.initMono1(Mono1comboBox.Text);
             petla.initScope();
             double wl;
-            Console.WriteLine(lam0 + " " + step + " " + end);
+            log.Info(lam0 + " " + step + " " + end);
+            //Console.WriteLine(lam0 + " " + step + " " + end);
             wl = lam0;//; wl <= end; wl+= step
+            if (step == 0) step = 1;
             petla.PostMessage("goto1 " + (lam0 - step).ToString());
             for (int i=0;lam0+i*step<=end;i++)
             {
@@ -71,6 +74,7 @@ namespace DongWooScope
                 //Console.WriteLine("wait 100");
                 petla.PostMessage("scan1 " + wl.ToString());
                 //Console.WriteLine("info: scan1 " + wl.ToString("G4", System.Globalization.CultureInfo.InvariantCulture));
+                //log.Info("scan1 " + wl.ToString("G4", System.Globalization.CultureInfo.InvariantCulture));
                 petla.PostMessage("rstscope");
                 petla.PostMessage("wait 3500");
                 petla.PostMessage("decay");
@@ -135,7 +139,8 @@ namespace DongWooScope
             else
             {
                 timer1.Enabled = false;
-                Console.WriteLine("Info: Trud skonczon");
+                //Console.WriteLine("Info: Trud skonczon");
+                log.Info("Fight for better socialistic tommorow finished");
                 string dane="";
                 for (int i = 0; i < chart1.Series[0].Points.Count; i++) { dane += chart1.Series[0].Points[i].XValue + " " + chart1.Series[0].Points[i].YValues[0]+"\r\n"; };
                 System.IO.File.WriteAllText("dane.dat", dane);

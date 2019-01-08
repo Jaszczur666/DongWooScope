@@ -40,6 +40,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\source\repos\ExperimentalLoopTester\ExperimentalLoop\bin\Release\ExperimentalLoop.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net40-client\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Monochromator">
       <HintPath>..\..\..\..\source\repos\Monochromator\Monochromator\bin\Release\Monochromator.dll</HintPath>
     </Reference>
@@ -82,6 +85,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
