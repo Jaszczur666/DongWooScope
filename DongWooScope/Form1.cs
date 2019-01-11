@@ -16,20 +16,24 @@ namespace DongWooScope
         public Form1()
         {
             InitializeComponent();
-            //krotki = new Monochromator();
-            //krotki.name = "Krotki";
             petla=new ELoop();
             petla.OnDataAvailable += new ELoop.DataAvailableHandler(this.UpdateChart);
-                //jobDone += new ELoop.JobDoneEventHandler(this.UpdateChart);
-            
-            //dlugi = new Monochromator();
-            //dlugi.name = "Dlugi";
-            //Oscyloskop = new Tektro.Scope();
-            //przetwornik = new ADC();
+            petla.OnExperimentFinished += new ELoop.ExperimentFinishedHandler(FinishExperiment);
+            log.Info("Started form");
             krok = 0;
+            filename = "";
         }
 
-
+        private void FinishExperiment()
+        {
+            Invoke((MethodInvoker)delegate
+            {
+                this.BackColor = Color.LimeGreen;
+                string dane = "";
+                for (int i = 0; i < chart1.Series[0].Points.Count; i++) { dane += chart1.Series[0].Points[i].XValue + " " + chart1.Series[0].Points[i].YValues[0] + "\r\n"; };
+                System.IO.File.WriteAllText("dane.dat", dane);
+            });
+            }
 
         private void UpdateChart()
         {
@@ -37,13 +41,20 @@ namespace DongWooScope
             double.TryParse(tbStart.Text, out lam0);
             double.TryParse(tbStep.Text, out step);
             double.TryParse(tbEnd.Text, out end);
-            Console.WriteLine("Ïnfo: Chart update ");
+            log.Info("Chart update ");
             Invoke((MethodInvoker) delegate {
                 Tektro.curve lastcurve;
                 petla.getLastCurve(out lastcurve);
                 double integral = 0;
                 for (int i = 0; i < lastcurve.decay.Count; i++) { integral += lastcurve.decay[i].y; };
+                double cw=new double();
+                cw = lastcurve.exc;
                 chart1.Series[0].Points.AddXY(lastcurve.exc, integral);
+                double val = 1000.0 * (cw- lam0) / (end - lam0);
+                toolStripProgressBar1.Value = (int)val;
+                toolStripStatusLabel1.Text = cw.ToString();
+                TimeSpan time = TimeSpan.FromSeconds((int)(3.9 * ((end - cw) / step)));
+                toolStripStatusLabel2.Text = time.ToString();
                 });
             krok++;
             
@@ -56,6 +67,7 @@ namespace DongWooScope
             double.TryParse(tbStart.Text, out lam0);
             double.TryParse(tbStep.Text, out step);
             double.TryParse(tbEnd.Text, out end);
+            petla.SetSampleLabel(filename);
             //dlugi.Goto(lam0);
             //Oscyloskop.Initialize();
             //przetwornik.InitializeADC(ADCcomboBox.Text);
@@ -153,9 +165,7 @@ namespace DongWooScope
             string config;
             config = ADCcomboBox.Text + "\r\n" + Mono1comboBox.Text+"\r\n"+mono2ComboBox.Text;
             System.IO.File.WriteAllText("ports.cfg", config);
-            string dane = "";
-            for (int i = 0; i < chart1.Series[0].Points.Count; i++) { dane += chart1.Series[0].Points[i].XValue + " " + chart1.Series[0].Points[i].YValues[0] + "\r\n"; };
-            System.IO.File.WriteAllText("dane.dat", dane);
+
         }
 
         private void mono2ComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -165,10 +175,34 @@ namespace DongWooScope
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            petla.initScope();
+            /*petla.initScope();
             petla.PostMessage("decay");
             petla.PostMessage("dump");
             petla.loop();
+            */
+            //   petla.loop();
+            petla.fakedecay();
+            petla.SetSampleLabel(filename);
+            petla.PostMessage("dump");
+            petla.loop();
+            //UpdateChart();
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripStatusLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            f2.Show();
+            
         }
     }
 }
