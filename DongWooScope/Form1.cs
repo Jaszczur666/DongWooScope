@@ -12,6 +12,7 @@ namespace DongWooScope
 
     public partial class Form1 : Form
     {
+        
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public Form1()
         {
@@ -59,6 +60,7 @@ namespace DongWooScope
             krok++;
             
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             double lam0,step,end;
@@ -197,12 +199,24 @@ namespace DongWooScope
         {
 
         }
+        public void setFilename( string fname)
+        {
+            filename = fname;
+            petla.SetSampleLabel(fname);
 
+        }
         private void button2_Click(object sender, EventArgs e)
         {
-            Form2 f2 = new Form2();
+            Form2 f2 = new Form2(this);
             f2.Show();
             
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            petla.initMono1(Mono1comboBox.Text);
+            ManipulationForm f3 = new ManipulationForm(this);
+            f3.Show();
         }
     }
 }
