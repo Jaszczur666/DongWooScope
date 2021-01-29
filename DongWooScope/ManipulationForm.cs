@@ -32,7 +32,7 @@ namespace DongWooScope
                 if (this.radioButton3.Checked) grating = "3";
                 log.Debug("Attempting step to wavelength " + textBox1.Text + " using grating number " + grating);
                 mainform.petla.SelectGrating1(grating);
-                mainform.petla.move1(textBox1.Text);
+                mainform.petla.Move1(textBox1.Text);
 
             });
         }

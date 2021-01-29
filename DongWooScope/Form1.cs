@@ -45,7 +45,7 @@ namespace DongWooScope
             log.Info("Chart update ");
             Invoke((MethodInvoker) delegate {
                 Tektro.curve lastcurve;
-                petla.getLastCurve(out lastcurve);
+                petla.GetLastCurve(out lastcurve);
                 double integral = 0;
                 for (int i = 0; i < lastcurve.decay.Count; i++) { integral += lastcurve.decay[i].y; };
                 double cw=new double();
@@ -74,7 +74,7 @@ namespace DongWooScope
             //Oscyloskop.Initialize();
             //przetwornik.InitializeADC(ADCcomboBox.Text);
             petla.initMono1(Mono1comboBox.Text);
-            petla.initScope();
+            petla.InitScope();
             double wl;
             log.Info(lam0 + " " + step + " " + end);
             //Console.WriteLine(lam0 + " " + step + " " + end);

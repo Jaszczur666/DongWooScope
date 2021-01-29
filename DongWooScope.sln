@@ -1,17 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2046
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DongWooScope", "DongWooScope\DongWooScope.csproj", "{BC250942-0916-4EB2-81C9-D963012D582E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExperimentalLoop", "..\..\..\source\repos\ExperimentalLoopTester\ExperimentalLoop\ExperimentalLoop.csproj", "{481272CA-DF07-4CE3-9397-D65B0F8CD104}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExperimentalLoop", "..\ExperimentalLoopTester\ExperimentalLoop\ExperimentalLoop.csproj", "{481272CA-DF07-4CE3-9397-D65B0F8CD104}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monochromator", "..\..\..\source\repos\Monochromator\Monochromator\Monochromator.csproj", "{B3CC3E44-732B-4316-871D-5C201D18D9D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monochromator", "H:\repos\Monochromator\Monochromator\Monochromator.csproj", "{B3CC3E44-732B-4316-871D-5C201D18D9D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tektro", "..\..\..\source\repos\Tektro\Tektro\Tektro.csproj", "{78B41AF5-989A-437D-913A-4758304F6455}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExperimentalLoopTester", "..\..\..\source\repos\ExperimentalLoopTester\ExperimentalLoopTester\ExperimentalLoopTester.csproj", "{D6128049-B807-42A6-B7C7-239BDBC8C967}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tektro", "H:\repos\Tektro\Tektro\Tektro.csproj", "{78B41AF5-989A-437D-913A-4758304F6455}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +33,6 @@ Global
 		{78B41AF5-989A-437D-913A-4758304F6455}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78B41AF5-989A-437D-913A-4758304F6455}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78B41AF5-989A-437D-913A-4758304F6455}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D6128049-B807-42A6-B7C7-239BDBC8C967}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D6128049-B807-42A6-B7C7-239BDBC8C967}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D6128049-B807-42A6-B7C7-239BDBC8C967}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D6128049-B807-42A6-B7C7-239BDBC8C967}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
