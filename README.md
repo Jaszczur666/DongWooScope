@@ -1,2 +1,2 @@
-# DongWooSharp
-Simple software to control two DongWoo Optron monochromators and and ADC 
+# DongWooBox
+This is simple software to control various pieces of equipment, a piece of series. This version will be used to measure luminescence spectra, and it is an evolution of what this program was at the beginning. It all started with the very premise of this version. It worked, but then I forked the code, and added scope support to record luminescence decay profile instead of simple spectra. This proved a tall order, I was forced to evolve the software vastly to achieve this goal. While I still have source of initial software, improvements in robustness are big enough to change the scope version to what it once was. ExperimentalLoop class developed to control the flow makes this transition pretty trivial. However old hardware that will run this software forces to use outdated version of toolchain.
